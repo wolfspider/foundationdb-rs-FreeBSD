@@ -348,6 +348,9 @@ where
 #[cfg(target_os = "linux")]
 const OPTIONS_DATA: &[u8] = include_bytes!("/usr/include/foundationdb/fdb.options");
 
+#[cfg(target_os = "freebsd")]
+const OPTIONS_DATA: &[u8] = include_bytes!("/usr/local/include/foundationdb/fdb.options");
+
 #[cfg(target_os = "macos")]
 const OPTIONS_DATA: &[u8] = include_bytes!("/usr/local/include/foundationdb/fdb.options");
 

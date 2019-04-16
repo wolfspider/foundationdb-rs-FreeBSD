@@ -11,6 +11,9 @@ const INCLUDE_PATH: &str = "-I/usr/include/foundationdb/";
 #[cfg(target_os = "macos")]
 const INCLUDE_PATH: &str = "-I/usr/local/include/foundationdb/";
 
+#[cfg(target_os = "freebsd")]
+const INCLUDE_PATH: &str = "-I/usr/local/include/foundationdb/";
+
 #[cfg(target_os = "windows")]
 const INCLUDE_PATH: &str = "-IC:/Program Files/foundationdb/include/foundationdb";
 
@@ -22,6 +25,9 @@ fn main() {
     // the shared library, at runtime)
     #[cfg(target_os = "windows")]
     println!("cargo:rustc-link-search=C:/Program Files/foundationdb/lib/foundationdb");
+
+    #[cfg(target_os = "freebsd")]
+    println!("cargo:rustc-link-search=/lib");
 
     let out_path = PathBuf::from(env::var("OUT_DIR").expect("OUT_DIR is not defined!"));
 

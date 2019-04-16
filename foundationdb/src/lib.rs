@@ -223,6 +223,12 @@ pub fn default_config_path() -> &'static str {
 }
 
 /// Returns the default Fdb cluster configuration file path
+#[cfg(target_os = "freebsd")]
+pub fn default_config_path() -> &'static str {
+    "/usr/local/etc/foundationdb/fdb.cluster"
+}
+
+/// Returns the default Fdb cluster configuration file path
 #[cfg(target_os = "windows")]
 pub fn default_config_path() -> &'static str {
     "C:/ProgramData/foundationdb/fdb.cluster"

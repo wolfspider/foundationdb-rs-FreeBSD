@@ -801,10 +801,10 @@ fn main() {
         cluster_path = &args[3];
     }
 
-    let api_version = args[2].parse::<i32>().expect("failed to parse api version");
+    //let api_version = args[2].parse::<i32>().expect("failed to parse api version");
 
     let network = fdb_api::FdbApiBuilder::default()
-        .set_runtime_version(api_version)
+        .set_runtime_version(600)
         .build()
         .expect("failed to init api")
         .network()
